@@ -23,7 +23,7 @@ RSpec.describe HomeController, type: :controller do
         expect(response.status).to eq 429
       end
 
-      fit "returns 200 once the ip key expires" do
+      it "returns 200 once the ip key expires" do
         101.times { get :index }
         $redis.expire request.remote_ip, 0
         get :index
